@@ -1,6 +1,16 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+import "swiper/swiper-bundle.css";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import { theme } from "../styles/theme";
+import "../styles/swiper.css";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
 }
+
+export default MyApp;
